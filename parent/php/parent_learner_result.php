@@ -1,0 +1,148 @@
+<html>
+    <?php include './head.php'; ?>
+    <link rel="stylesheet" href="../css/result_table_score.css">
+    <body class="hold-transition skin-purple sidebar-mini">
+        <div class="wrapper">
+            <?php include '../php/parent_header.php'; ?>
+            <!-- Left side column. contains the logo and sidebar -->
+            <?php include '../php/page_nav.php'; ?>
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>
+                        School Year: <?php
+                        $currentYear = date('Y');
+                        $nextYear = $currentYear + 1;
+                        $yearRange = $currentYear . '-' . $nextYear;
+                        echo $yearRange;
+                        ?>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="../php/learner_dashboard.php"><i class="fa-solid fa-house"></i> Home</a></li>
+                        <li class="active">Results</li>
+                    </ol>
+                </section>
+
+                <!-- Main content -->
+                <section class="content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title"><img src="../../image/result(1).png" alt="result" width="25"> Results</h3>
+                                    <div class="box-tools pull-right">
+                                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+
+                                        <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                                    </div>
+                                </div><!-- /.box-header -->
+                                <div class="box-body">
+                                    <div class="row">
+                                        <div class="col-md-10">
+
+                                            <?php
+                                            include '../database/config.php';
+
+                                            $idNumber = $_SESSION['idNumber'];
+                                            $subjectcode = $_SESSION['subjectcode'];
+                                            $subjectname = $_SESSION['subjectname'];
+                                            $grade_id = $_SESSION['grade_id'];
+                                            $learnerId = $_SESSION['learnerId'];
+
+                                            // Fetch data from the database (Filter scores greater than 50)
+                                            $sql = "
+                                                    SELECT 
+                                                        sfm.id AS id,
+                                                        sfm.quiz_mark AS quiz_mark,
+                                                        sfm.class_mark AS class_mark,
+                                                        sfm.assignment_mark AS assignment_mark,
+                                                        sfm.final_mark AS final_mark,
+                                                        t.term_name AS term_name
+                                                    FROM 
+                                                        subject_final_mark sfm
+                                                    JOIN 
+                                                        term t ON t.id = sfm.term_id
+                                                    JOIN 
+                                                        subjects su ON su.id = sfm.subject_id
+                                                    JOIN 
+                                                        grade g ON g.id = sfm.grade_id
+                                                    WHERE 
+                                                        sfm.grade_id = ? 
+                                                        AND su.subjectname = ? 
+                                                        AND su.subjectcode = ? 
+                                                        AND sfm.learner_id = ?
+                                                ";
+
+                                            // Prepare and bind parameters
+                                            $stmt = $conn->prepare($sql);
+                                            $stmt->bind_param("isss", $grade_id, $subjectname, $subjectcode, $learnerId);
+                                            // "i" = integer, "s" = string
+                                            // Execute the query
+                                            $stmt->execute();
+                                            $result = $stmt->get_result();
+
+                                            // Fetch and display results
+                                            ?>
+                                            <div>
+                                                <h4 class="box-title"><img src="../icons/progress.png" width="25"> <?php echo $subjectname; ?> <b> [<?php echo $subjectcode; ?>]</b> Results</h4>
+                                                <table>
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Term</th>
+                                                            <th>Online Tests</th>
+                                                            <th>Class Test</th>
+                                                            <th>Assignments</th>
+                                                            <th>Final Mark</th>
+                                                            <th>Result</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <?php
+                                                        $count = 0;
+                                                        if ($result->num_rows > 0):
+                                                            ?>
+                                                            <?php while ($row = $result->fetch_assoc()):
+                                                                $count++
+                                                                ?>
+                                                                <tr class="<?php echo $row['final_mark'] >= 50 ? 'pass' : 'fail'; ?>">
+                                                                    <td data-label="Term"><?php echo $row['term_name']; ?></td>
+                                                                    <td data-label="Online Test"><?php echo ($row['quiz_mark'] === null) ? '<b>No Marks</b>' : $row['quiz_mark']; ?></td>
+                                                                    <td data-label="Class Test"><?php echo ($row['class_mark'] === null) ? '<b>No Marks</b>' : $row['class_mark']; ?></td>
+                                                                    <td data-label="Assignments"><?php echo ($row['assignment_mark'] === null) ? '<b>No Marks</b>' : $row['assignment_mark']; ?></td>
+                                                                    <td data-label="Final Mark"><?php echo ($row['final_mark'] === null) ? '<b>No Marks</b>' : $row['final_mark']; ?></td>
+                                                                    <td data-label="Status">
+                                                                        <?php echo $row['final_mark'] >= 50 ? '<b>Pass</b>' : '<b>Fail</b>'; ?>
+                                                                    </td>
+                                                                </tr>
+                                                            <?php endwhile; ?>
+                                                        <?php else: ?>
+                                                            <tr>
+                                                                <td colspan="5" style="text-align: center;">No records found</td>
+                                                            </tr>
+                                                        <?php endif; ?>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div><!-- /.col -->
+                                    </div><!-- /.row -->
+                                </div><!-- ./box-body -->
+                            </div><!-- /.box -->
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </section><!-- /.content -->
+            </div><!-- /.content-wrapper -->
+
+            <?php include '../php/footer.php'; ?>         
+
+            <?php include '../javascript/script.js'; ?>
+
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+                body {
+                    font-family: "Montserrat", sans-serif;
+                }
+            </style>
+    </body>
+</html>

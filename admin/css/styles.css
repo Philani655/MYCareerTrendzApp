@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #2c3e50, #2980b9); /* Dark blue gradient */
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.login-box {
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.textbox {
+    margin-bottom: 20px;
+}
+
+.textbox label {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.textbox input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.textbox input:focus {
+    border-color: #2980b9; /* Blue border when input is focused */
+}
+
+.required {
+    color: #e74c3c; /* Red color for the required star */
+    font-weight: bold;
+}
+
+.button-container {
+    text-align: center;
+}
+
+.login-btn {
+    background-color: #2980b9; /* Blue button */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.login-btn:hover {
+    background-color: #2471a3;
+}
+
+.error-message {
+    color: #e74c3c; /* Red error message */
+    font-size: 12px;
+    margin-top: 5px;
+    display: none;
+    font-weight: bold;
+}
+
+.forgot-password, .back-to-login {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.forgot-password a, .back-to-login a {
+    font-size: 14px;
+    color: #2980b9;
+    text-decoration: none;
+}
+
+.forgot-password a:hover, .back-to-login a:hover {
+    text-decoration: underline;
+}
+
+
+/* Responsive Design */
+@media screen and (max-width: 600px) {
+    .login-box {
+        width: 90%;
+    }
+
+    .textbox input {
+        padding: 15px;
+    }
+
+    .login-btn {
+        font-size: 18px;
+    }
+}

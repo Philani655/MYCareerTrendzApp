@@ -1,0 +1,57 @@
+
+.profile-link {
+    text-decoration: none;  /* Removes underline */
+}
+
+.profile-container {
+    max-height: 300px; /* Set max height */
+    overflow-y: scroll; /* Allow scrolling */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+
+    /* Hide scrollbar */
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For IE & Edge */
+}
+
+.profile-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.profile-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease;
+}
+
+.profile-item:hover {
+    background-color: #e0e0e0;
+}
+
+.profile-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+}
+
+.profile-item span {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+

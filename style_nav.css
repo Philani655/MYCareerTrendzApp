@@ -1,0 +1,141 @@
+/* styles.css */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+.footer-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin-left: 45%;
+    margin-bottom: 40px;
+    width: 260px; /* Match the expanded width of the menu */
+    transition: width 0.3s ease; /* Smooth transition for width */
+}
+
+/* Heading Styling */
+.footer-heading {
+    background-color: #fff;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Shadow on top */
+}
+
+.footer-heading h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.horizontal-menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin-left: 40%;
+    width: 260px; /* Expanded width (adjust based on number of icons) */
+    height: 60px; /* Fixed height for the horizontal menu */
+    background-color: transparent;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Shadow on top */
+    display: flex;
+    flex-direction: row; /* Horizontal layout */
+    justify-content: space-between; /* Space between menu items and toggle button */
+    align-items: center;
+    padding: 0 10px; /* Padding on the sides */
+    transition: width 0.3s ease; /* Smooth transition for width */
+}
+
+.horizontal-menu.collapsed {
+    width: 50px; /* Collapsed width (just enough for the arrow) */
+}
+
+.horizontal-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row; /* Horizontal layout for menu items */
+    gap: 20px; /* Space between icons */
+}
+
+.horizontal-menu li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.3s ease; /* Smooth transition for opacity */
+}
+
+.horizontal-menu.collapsed li {
+    opacity: 0; /* Hide icons when collapsed */
+}
+
+.horizontal-menu a {
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.horizontal-menu a:hover {
+    background-color: #e0e0e0;
+}
+
+.horizontal-menu .icon {
+    font-size: 24px;
+    color: #333;
+}
+
+@media only screen and (max-width: 700px) {
+    .footer-container {
+        margin-left: 40%;
+        margin-bottom: 40px;
+    }
+
+    .horizontal-menu {
+        margin-left: 20%;
+    }
+
+    .horizontal-menu ul {
+        gap: 1px; /* Space between icons */
+    }
+  }
+  
+@media only screen and (max-width: 900px) {
+    .footer-container {
+        margin-left: 20%;
+        margin-bottom: 40px;
+    }
+
+    .horizontal-menu ul {
+        gap: 1px; /* Space between icons */
+    }
+}
+    
+@media only screen and (max-width: 500px) {
+
+    .footer-container {
+        margin-left: 35%;
+        margin-bottom: 40px;
+    }
+
+    .horizontal-menu ul {
+        gap: 0; /* Space between icons */
+    }
+
+}
+
+@media only screen and (max-width: 300px) {
+    .footer-container {
+        margin-left: 35%;
+        margin-bottom: 40px;
+    }
+
+    .horizontal-menu ul {
+        gap: 0; /* Space between icons */
+    }
+}

@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.otp-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 350px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.otp-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.otp-box input {
+    width: 45px;
+    height: 50px;
+    font-size: 24px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.otp-box input:focus {
+    border-color: #28a745;
+    box-shadow: 0px 0px 5px rgba(40, 167, 69, 0.5);
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 15px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.message {
+    margin-top: 10px;
+    color: red;
+    font-size: 14px;
+}
+
+/* Responsive Styles */
+@media (max-width: 480px) {
+    .otp-box input {
+        width: 40px;
+        height: 45px;
+        font-size: 20px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}

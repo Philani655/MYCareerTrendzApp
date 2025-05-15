@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Rubik", sans-serif;
+    background-color: #fafafa;
+}
+
+.navbar{
+    margin: 10px 20px 0px 20px;
+    border-radius: 6px;
+}
+
+.image-container{
+    max-width: 90%;
+    margin-left: 5%;
+    margin-top: 7%;
+    height: 500px;
+    border-radius: 10px;
+    background-image: url('../image/ismail.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.container{
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.panel-heading{
+  background-color: #e9ecef;
+}
+
+p{
+  border: 1px solid #ececec;
+  background: #f8f9fa;
+  height: 40px;
+  font-size: 16px;
+  text-align: start;
+}
+
+i{
+  font-size: 24px;
+  color: green;
+}
+
+
+.image_container{
+  max-width: 90%;
+  margin-left: 5%;
+  margin-top: 3%;
+  height: 800px;
+  border-radius: 10px;
+  background-image: url('../image/ecl.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+footer{
+  text-align: center;
+  background: #3a3939;
+}
+
+@media only screen and (max-width: 700px) {
+
+  .navbar{
+    margin: 20px 40px 0px 40px;
+    border-radius: 6px;
+  }
+
+    .image-container {
+      width: 90%;
+      height: 200px;
+      margin-top: 20%;
+    }
+  }
+  
+  @media only screen and (max-width: 500px) {
+
+    .navbar{
+      margin: 10px 20px 0px 20px;
+      border-radius: 6px;
+    }
+
+    .image-container {
+      width: 90%;
+      height: 200px;
+      margin-top: 20%;
+    }
+
+    .image_container{
+      width: 90%;
+      height: 200px;
+      margin-top: 10%;
+    }
+
+  }
+

@@ -1,0 +1,17 @@
+.email-list {
+    border-right: 1px solid #ddd;
+    max-height: 400px;
+    overflow-y: auto;
+}
+.email-item {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+.email-item:hover {
+    background-color: #f8f9fa;
+}
+.email-box {
+    padding: 20px;
+    display: none;
+}

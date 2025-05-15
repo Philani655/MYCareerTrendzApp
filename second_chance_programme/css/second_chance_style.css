@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Rubik", sans-serif;
+    background-color: #ffffff;
+}
+
+.navbar{
+    padding: 20px;
+    background-color: #333;
+}
+
+.image-container{
+    max-width: 90%;
+    margin-left: 5%;
+    margin-top: 4%;
+    height: 300px;
+    border-radius: 10px;
+    background-image: url('../image/second.png');
+    border: solid 1px #e2dfdf;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+@media only screen and (max-width: 500px) {
+
+    .panel-title{
+        font-size: 15px;
+    }
+
+    .panel-body, p, b{
+        font-size: 14px;
+    }
+
+    .image-container {
+      width: 90%;
+      height: 200px;
+      margin-top: 4%;
+    }
+
+    .card-footer, small{
+        font-size: 10px;
+    }
+  
+  }
